@@ -9,23 +9,18 @@
 <h2>form for input data</h2>
 <br>
 
-<form:form action="/${url}" modelAttribute="animal" method="POST">
+<form:form action="${pageContext.request.contextPath}/${url}"
+           modelAttribute="animal" method="POST">
 
-
-id = <form:hidden path="id"/>
-<br>
-name = <form:input path="name"/>
-<br>
-age = <form:input path="age"/>
-<br>
-color = <form:input path="color"/>
-<br>
-
-    <a href="${pageContext.request.contextPath}/findAllAnimals">home page</a>
-
-
-    </form:form>
-
+    <form:hidden path="id"/>
+    name = <form:input path="name"/>
+    <br>
+    age = <form:input path="age"/>
+    <br>
+    color = <form:input path="color"/>
+    <br>
+    <input type="submit" value="ok"/>
+</form:form>
 
 </body>
 </html>

@@ -15,13 +15,13 @@
 | name = ${animal.name}
 | color = ${animal.color}
 | age = ${animal.age}
-
-<a href = "${pageContext.request.contextPath}/updateAnimal?id=${animal.id}"> update </a>
-<a href = "${pageContext.request.contextPath}/deleteAnimal?id=${animal.id}"> update </a>
+| <a href = "${pageContext.request.contextPath}/updateAnimal?id=${animal.id}"> update </a>
+| <a href = "${pageContext.request.contextPath}/deleteAnimal?id=${animal.id}"> delete </a>
 
 </c:forEach>
 
-<a href = "${pageContext.request.contextPath}/createAnimal"> update </a>
+<br>
+<a href = "${pageContext.request.contextPath}/createAnimal"> create new animal </a>
 
 </body>
 </html>
