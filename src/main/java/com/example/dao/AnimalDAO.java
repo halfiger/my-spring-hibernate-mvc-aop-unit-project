@@ -9,5 +9,5 @@ public interface AnimalDAO {
     Animal findById (int id);
     void save (Animal animal);
     void update (Animal animal);
-    void delete (Animal animal);
+    void delete (int id);
 }

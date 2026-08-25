@@ -8,7 +8,7 @@ public interface AnimalService {
 
     List<Animal> findAll ();
     Animal findById (int id);
-    void delete (Animal animal);
+    void delete (int id);
     void update (Animal animal);
     void save (Animal animal);
 

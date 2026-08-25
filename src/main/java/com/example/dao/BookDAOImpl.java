@@ -19,19 +19,22 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public List <Book> findAll() {
-        return sessionFactory.getCurrentSession()
+        return sessionFactory
+                .getCurrentSession()
                 .createQuery("from Book", Book.class)
                 .getResultList();
     }
 
     @Override
     public Book findById(int id) {
-        return sessionFactory.getCurrentSession().get(Book.class, id);
+        return sessionFactory.getCurrentSession()
+                .get(Book.class, id);
     }
 
     @Override
     public void deleteByID(int id) {
-        sessionFactory.getCurrentSession().remove(findById(id));
+        sessionFactory.getCurrentSession()
+                .remove(findById(id));
     }
 
     @Override

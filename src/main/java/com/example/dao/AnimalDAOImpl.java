@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class AnimalDAOImpl implements AnimalDAO{
 
-    SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public AnimalDAOImpl (SessionFactory sessionFactory) {
@@ -19,24 +19,31 @@ public class AnimalDAOImpl implements AnimalDAO{
 
     @Override
      public List<Animal>  findAll () {
-         return sessionFactory.getCurrentSession().createQuery("from Animal", Animal.class).getResultList();
+         return sessionFactory
+                 .getCurrentSession()
+                 .createQuery("from Animal", Animal.class)
+                 .getResultList();
      }
 
      @Override
      public Animal findById (int id) {
-        return sessionFactory.getCurrentSession().get(Animal.class, id);
+        return sessionFactory.getCurrentSession()
+                .get(Animal.class, id);
      }
 
      @Override
     public void save (Animal animal) {
-        sessionFactory.getCurrentSession().persist(animal);
+        sessionFactory.getCurrentSession()
+                .persist(animal);
      }
 
      @Override
-    public void delete (Animal animal) {
-        sessionFactory.getCurrentSession().remove(animal);
+    public void delete (int id) {
+        sessionFactory.getCurrentSession()
+                .remove(findById(id));
      }
 
+    @Override
      public void update (Animal animal) {
         sessionFactory.getCurrentSession().merge(animal);
      }
