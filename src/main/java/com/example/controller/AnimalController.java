@@ -29,7 +29,7 @@ public class AnimalController {
     @GetMapping ("/findAllAnimals")
     public String findAllAnimals (Model model) {
         List <Animal> list = animalService.findAll();
-        model.addAttribute("Animals", list);
+        model.addAttribute("animals", list);
         return "animals";
     }
 
