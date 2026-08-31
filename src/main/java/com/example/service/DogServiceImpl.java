@@ -2,12 +2,14 @@ package com.example.service;
 
 import com.example.dao.DogDAO;
 import com.example.entity.Dog;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class DogServiceImpl implements DogService {
 
     private final DogDAO dogDAO;

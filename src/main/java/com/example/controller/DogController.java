@@ -5,9 +5,7 @@ import com.example.service.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,26 +30,40 @@ public class DogController {
     public String showDog (Model model, @RequestParam ("id") int id) {
         Dog dog = dogService.showDog(id);
         model.addAttribute("dog", dog);
-        return "show-dog";
+        return "dog";
     }
 
     @GetMapping ("/create-dog")
     public String createDog (Model model) {
         model.addAttribute("dog", new Dog());
-        model.addAttribute("url", "/afterCreate");
+        model.addAttribute("url", "/after-create-dog");
         return "dog-form";
+    }
+
+    @PostMapping ("/after-create-dog")
+    public String afterCreateDog (@ModelAttribute ("dog") Dog dog) {
+        dogService.save(dog);
+        return "redirect:/show-dog?id="+dog.getId();
     }
 
     @GetMapping ("/update-dog")
     public String updateDog (Model model, @RequestParam ("id") int id) {
         Dog dog = dogService.showDog(id);
         model.addAttribute("dog", dog);
-        model.addAttribute("url", "/afterUpdate");
+        model.addAttribute("url", "/after-update-dog");
         return "dog-form";
     }
 
+    @PostMapping ("/after-update-dog")
+    public String afterUpdateDog (@ModelAttribute("dog") Dog dog) {
+        dogService.update(dog);
+        return "redirect:/show-dog?id="+dog.getId();
+    }
+
     @GetMapping ("/delete-dog")
-    public String deleteDog (@RequestAttribute ("Dog") Dog dog) {
+    public String deleteDog (@RequestParam ("id") int id) {
+
+        Dog dog = dogService.showDog(id);
         dogService.delete(dog);
         return "redirect:/show-dogs";
     }

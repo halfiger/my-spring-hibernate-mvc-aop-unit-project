@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.entity.Dog;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
