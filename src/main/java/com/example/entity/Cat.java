@@ -1,0 +1,53 @@
+package com.example.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name ="cats")
+public class Cat {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String name;
+    private String color;
+    private int age;
+
+    public void setId (int id) {
+        this.id = id;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    public void setColor (String color) {
+        this.color =color;
+    }
+
+    public void setAge (int age) {
+        this.age = age;
+    }
+
+    public int getId () {
+        return this.id;
+    }
+
+    public String getName () {
+        return this.name;
+    }
+
+    public String getColor () {
+        return this.color;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+    public String toString() {
+        return "id = " + id + " name = " + name;
+    }
+
+}
+
