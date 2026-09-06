@@ -1,16 +1,22 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jazzm
-  Date: 9/6/2026
-  Time: 12:03 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>form for new cat or cat updating</title>
 </head>
+<h1>form for new cat or cat updating</h1>
 <body>
+
+<form:form action = "${pageContext.request.contextPath}${url}" modelAttribute="cat" method="POST">
+
+<form:hidden path = "id"/> <br>
+name = <form:input path = "name"/> <br>
+color = <form:input path = "color"/> <br>
+age <form:input path = "age"/> <br>
+<input type = "submit" value ="oki"> <br>
+</form:form>
+
+<a href = "${pageContext.request.contextPath}/cat-home"> return </a>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class CatDAOImpl implements CatDAO{
+
     private final SessionFactory sessionFactory;
 
     @Autowired
@@ -39,8 +40,4 @@ public class CatDAOImpl implements CatDAO{
     public void updateCat (Cat cat) {
         sessionFactory.getCurrentSession().merge(cat);
     }
-
-
-
-
 }
