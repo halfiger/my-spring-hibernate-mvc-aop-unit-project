@@ -33,7 +33,7 @@ public class MouseDAOImpl implements MouseDAO{
 
     @Override
     public void createMouse (Mouse mouse) {
-        sessionFactory.getCurrentSession().remove(mouse);
+        sessionFactory.getCurrentSession().persist(mouse);
     }
 
     @Override

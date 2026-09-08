@@ -46,7 +46,7 @@ public class MouseController {
     @GetMapping ("/createMouse")
     public String createMouse (Model model) {
         Mouse mouse = new Mouse();
-        model.addAttribute("url", "afterCreateMouse");
+        model.addAttribute("url", "/afterCreateMouse");
         model.addAttribute("title", "AFTER CREATE MOUSE");
         model.addAttribute("mouse", mouse);
         return "/mouse-form";
@@ -72,5 +72,4 @@ public class MouseController {
         mouseService.updateMouse(mouse);
         return "redirect:/showMouse?id="+mouse.getId();
     }
-
 }
