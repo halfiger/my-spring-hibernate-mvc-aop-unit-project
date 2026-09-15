@@ -36,7 +36,7 @@ public class FishController {
     }
 
     @GetMapping ("/deleteFish")
-    public String deleteFish (Model model, @RequestParam ("id") int id) {
+    public String deleteFish (@RequestParam ("id") int id) {
         Fish fish = fishService.getFish(id);
         fishService.deleteFish(fish);
         return "redirect:/showFishes";
