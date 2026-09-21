@@ -1,16 +1,34 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jazzm
-  Date: 9/21/2026
-  Time: 3:20 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Home page</title>
 </head>
 <body>
+
+<c:forEach items = "${ducks}" var = "duck">
+    id = ${duck.id} | name = ${duck.name} |
+    <a href = "${pageContext.request.contextPath}/getDuck?id=${duck.id}">
+    show full duck
+    </a> |
+
+    <a href = "${pageContext.request.contextPath}/deleteDuck?id=${duck.id}">
+    delete duck
+    </a> |
+
+    <a href = "${pageContext.request.contextPath}/updateDuck?id=${duck.id}">
+    update duck
+    </a>
+
+    <br>
+</c:forEach>
+
+<br>
+
+<a href = "${pageContext.request.contextPath}/createDuck">
+    CREATE NEW DUCK
+<a>
+
 
 </body>
 </html>
