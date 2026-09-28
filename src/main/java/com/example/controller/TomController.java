@@ -22,14 +22,14 @@ public class TomController {
     public String getToms (Model model) {
         List<Tom> toms = tomService.getToms();
         model.addAttribute ("toms", toms);
-        return "/toms";
+        return "toms";
     }
 
     @GetMapping ("/getTom")
     public String getTom (@RequestParam("id") int id, Model model) {
         Tom tom = tomService.getTom(id);
         model.addAttribute("tom", tom);
-        return "/tom";
+        return "tom";
     }
 
     @GetMapping ("deleteTom")
@@ -40,31 +40,30 @@ public class TomController {
     }
 
     @GetMapping ("/createTom")
-    public String crerateTom (Model model) {
+    public String createTom (Model model) {
         Tom tom = new Tom();
         model.addAttribute("tom", tom);
         model.addAttribute("url", "/afterCreateTom");
         return "tom-form";
     }
 
-    @PostMapping ("afterCreateTom")
-    public String afterCreateTom (@RequestAttribute ("tom") Tom tom) {
+    @PostMapping ("/afterCreateTom")
+    public String afterCreateTom (@ModelAttribute ("tom") Tom tom) {
         tomService.createTom(tom);
         return "redirect:/getTom?id="+tom.getId();
     }
 
-    @GetMapping
+    @GetMapping ("/updateTom")
     private String updateTom (@RequestParam ("id") int id, Model model) {
         Tom tom = tomService.getTom(id);
         model.addAttribute("tom", tom);
-        model.addAttribute("url", "afterUpdateTom");
+        model.addAttribute("url", "/afterUpdateTom");
         return "tom-form";
     }
 
-    @PostMapping
-    private String afterUpdateTom (@RequestAttribute ("tom") Tom tom) {
+    @PostMapping ("/afterUpdateTom")
+    private String afterUpdateTom (@ModelAttribute ("tom") Tom tom) {
         tomService.updateTom(tom);
         return "redirect:/getTom?id="+tom.getId();
     }
-
 }

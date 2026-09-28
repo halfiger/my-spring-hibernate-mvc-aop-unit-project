@@ -39,6 +39,6 @@ public class TomServiceImpl implements TomService {
 
     @Override
     public void updateTom (Tom tom) {
-        tomDAO.deleteTom(tom);
+        tomDAO.updateTom(tom);
     }
 }

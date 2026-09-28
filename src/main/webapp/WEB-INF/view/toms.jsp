@@ -11,7 +11,7 @@
 
     | id = ${tom.id} | name = ${tom.name} |
     <a href = "${pageContext.request.contextPath}/getTom?id=${tom.id}">INFO</a> |
-    <a href = "${pageContext.request.contextPath}/updateTom">UPDATE</a> |
+    <a href = "${pageContext.request.contextPath}/updateTom?id=${tom.id}">UPDATE</a> |
     <a href = "${pageContext.request.contextPath}/deleteTom?id=${tom.id}">DELETE</a>
 
     <br>
