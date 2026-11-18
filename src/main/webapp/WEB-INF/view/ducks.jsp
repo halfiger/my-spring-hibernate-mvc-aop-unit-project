@@ -27,7 +27,7 @@
 
 <a href = "${pageContext.request.contextPath}/createDuck">
     CREATE NEW DUCK
-<a>
+</a>
 
 
 </body>

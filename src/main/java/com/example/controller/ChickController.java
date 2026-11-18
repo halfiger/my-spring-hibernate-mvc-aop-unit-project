@@ -24,8 +24,8 @@ private final ChickService chickService;
 
     @GetMapping ("/getAllChicks")
     public String getAllChicks (Model model) {
-    List<Chick> list = chickService.getChicks();
-    model.addAttribute("list", list);
+    List<Chick> chicks = chickService.getChicks();
+    model.addAttribute("chicks", chicks);
     return "/chicks";
     }
 
@@ -36,7 +36,7 @@ private final ChickService chickService;
     return "/chick";
     }
 
-    @GetMapping ("deleteDuck")
+    @GetMapping ("deleteChick")
     public String deleteChick (@RequestParam ("id") int id) {
     Chick chick = chickService.getChick(id);
     chickService.removeChick(chick);
@@ -48,7 +48,7 @@ private final ChickService chickService;
     Chick chick = new Chick();
     model.addAttribute("chick", chick);
     model.addAttribute("mode", "Create");
-    model.addAttribute("url", "afterCreateChick");
+    model.addAttribute("url", "/afterCreateChick");
     return "/chick-form";
     }
 
@@ -57,7 +57,7 @@ private final ChickService chickService;
         Chick chick = chickService.getChick(id);
         model.addAttribute("chick", chick);
         model.addAttribute("mode", "update");
-        model.addAttribute("url", "afterUpdateChick");
+        model.addAttribute("url", "/afterUpdateChick");
         return "/chick-form";
     }
 
