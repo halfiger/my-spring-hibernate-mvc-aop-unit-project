@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.example.dao.ChickDAOImpl;
 import com.example.entity.Chick;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

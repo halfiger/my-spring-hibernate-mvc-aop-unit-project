@@ -5,10 +5,7 @@ import com.example.service.DuckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -52,7 +49,7 @@ public class DuckController {
     }
 
     @PostMapping ("/afterCreateDuck")
-    public String afterCreateDuck (@ModelAttribute ("Duck") Duck duck) {
+    public String afterCreateDuck (@RequestAttribute("Duck") Duck duck) {
         duckService.createDuck(duck);
         return "redirect:/getDuck?id="+ duck.getId();
     }
@@ -67,7 +64,7 @@ public class DuckController {
     }
 
     @PostMapping ("/afterUpdateDuck")
-    public String afterUpdateDuck (Model model, @ModelAttribute ("Duck") Duck duck) {
+    public String afterUpdateDuck (Model model, @RequestAttribute ("Duck") Duck duck) {
         duckService.updateDuck(duck);
         return "redirect:/getDuck?id="+ duck.getId();
     }

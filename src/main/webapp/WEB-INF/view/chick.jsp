@@ -9,6 +9,6 @@ name = ${chick.name} <br>
 color = ${chick.color} <br>
 age = ${chick.age} <br>
 <br>
-<a href="${pageContext.reaquest.contextPath}/getAllChicks">go home</a>
+<a href="${pageContext.request.contextPath}/getAllChicks">go home</a>
 </body>
 </html>
