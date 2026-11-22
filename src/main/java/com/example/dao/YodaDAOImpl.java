@@ -7,13 +7,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+
 public class YodaDAOImpl implements YodaDAO {
+
     private final SessionFactory sessionFactory;
 
     public YodaDAOImpl (SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
 
     public List<Yoda> getAllYodas () {
         return sessionFactory.getCurrentSession()
@@ -33,13 +34,12 @@ public class YodaDAOImpl implements YodaDAO {
 
     public void deleteYoda (Yoda yoda) {
         sessionFactory.getCurrentSession()
-                .remove(yoda);
+                .remove (yoda);
     }
 
     public void updateYoda (Yoda yoda) {
         sessionFactory.getCurrentSession()
                 .merge(yoda);
     }
-
 
 }
