@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class YodaServiceImpl {
+public class YodaServiceImpl implements YodaService {
     private final YodaDAO yodaDAO;
 
     public YodaServiceImpl (YodaDAO yodaDAO) {

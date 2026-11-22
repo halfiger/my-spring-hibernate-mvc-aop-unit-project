@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface YodaService {
     List<Yoda> getAllYodas ();
-    Yoda getYoda();
-    void createYoda();
-    void deleteYoda();
-    void updateYoda();
+    Yoda getYoda(int id);
+    void createYoda(Yoda yoda);
+    void deleteYoda(Yoda yoda);
+    void updateYoda(Yoda yoda);
 }
