@@ -18,7 +18,8 @@ public class TomDAOImpl implements TomDAO {
 
     @Override
     public Tom getTom (int id) {
-        return sessionFactory.getCurrentSession().get(Tom.class, id);
+        return sessionFactory.getCurrentSession()
+                .get(Tom.class, id);
     }
 
     @Override
