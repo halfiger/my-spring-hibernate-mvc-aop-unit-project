@@ -37,7 +37,7 @@ public class YodaController {
     public String createYoda (Model model) {
         Yoda yoda = new Yoda();
         model.addAttribute("yoda", yoda);
-        model.addAttribute("url", "afterUpdateYoda");
+        model.addAttribute("url", "/afterCreateYoda");
         return "yoda-form";
     }
 
@@ -53,12 +53,12 @@ public class YodaController {
         Yoda yoda = yodaService.getYoda(id);
         yodaService.updateYoda(yoda);
         model.addAttribute("yoda", yoda);
-        model.addAttribute("url", "afterUpdateYoda");
+        model.addAttribute("url", "/afterUpdateYoda");
         return "yoda-form";
     }
 
     @PostMapping ("/afterCreateYoda")
-    public String afterCreateYoda (@ModelAttribute ("yoda") Yoda yoda) {
+    public String afterCreateYoda (@ModelAttribute ("Yoda") Yoda yoda) {
         yodaService.createYoda(yoda);
         return "redirect:/getYoda?id="+yoda.getId();
     }

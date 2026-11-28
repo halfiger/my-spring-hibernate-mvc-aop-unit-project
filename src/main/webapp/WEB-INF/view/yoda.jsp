@@ -10,7 +10,7 @@ name = ${yoda.name} <br>
 color = ${yoda.color} <br>
 age = ${yoda.age} <br>
 
-<a href="${pageContext.request.contextPath}/getYodas">go home</a>
+<a href="${pageContext.request.contextPath}/getAllYodas">go home</a>
 
 </body>
 </html>

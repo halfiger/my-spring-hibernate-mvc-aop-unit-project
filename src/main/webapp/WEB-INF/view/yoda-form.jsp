@@ -1,16 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jazzm
-  Date: 11/22/2026
-  Time: 2:38 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
+<form:form action="${pageContext.request.contextPath}${url}" modelAttribute="yoda" method = "POST">
+
+    <form:hidden path = "id"/>
+            <form:input path = "name"/> <br>
+            <form:input path = "color"/> <br>
+            <form:input path = "age"/> <br>
+    <input type="submit" value="ok">
+</form:form>
 
 </body>
 </html>

@@ -9,13 +9,15 @@
 <c:forEach items = "${yodas}" var = "yoda">
 
     id = ${yoda.id} | name = ${yoda.name} |
-    <a href="${pageContext.request.contextPath}/getYoda?id=${yoda.id}">view</a>
-    <a href="${pageContext.request.contextPath}/updateYoda?id=${yoda.id}">update</a>
-    <a href="${pageContext.request.contextPath}/deleteYoda?id=${yoda.id}">delete</a>
+    <a href="${pageContext.request.contextPath}/getYoda?id=${yoda.id}">view |</a>
+    <a href="${pageContext.request.contextPath}/updateYoda?id=${yoda.id}">update |</a>
+    <a href="${pageContext.request.contextPath}/deleteYoda?id=${yoda.id}">delete |</a>
+<br>
 
 </c:forEach>
+<br>
 
-
+<a href = "${pageContext.request.contextPath}/createYoda">create</a>
 
 </body>
 </html>
